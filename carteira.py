@@ -44,8 +44,10 @@ with abas[0]:
 # ----------- Aba Ouro -----------
 with abas[1]:
     st.subheader("🥇 Ouro (GC=F)")
+
+    hoje = datetime.datetime.today().strftime('%Y-%m-%d')
     ouro = yf.Ticker("GC=F")
-    df_ouro = ouro.history(start="2010-01-01").reset_index()
+    df_ouro = ouro.history(start="2010-01-01", end=hoje).reset_index()
     df_ouro = df_ouro.drop(columns=['Dividends', 'Stock Splits'])
     df_ouro.columns = ["Data", "Abertura", "Máxima", "Mínima", "Fechamento", "Volume"]
     df_ouro['Variação (%)'] = df_ouro['Fechamento'].pct_change().mul(100).round(2)
@@ -56,8 +58,10 @@ with abas[1]:
 # ----------- Aba Prata -----------
 with abas[2]:
     st.subheader("🥈 Prata (SI=F)")
+
+    hoje = datetime.datetime.today().strftime('%Y-%m-%d')
     prata = yf.Ticker("SI=F")
-    df_prata = prata.history(start="2010-01-01").reset_index()
+    df_prata = prata.history(start="2010-01-01", end=hoje).reset_index()
     df_prata = df_prata.drop(columns=['Dividends', 'Stock Splits'])
     df_prata.columns = ["Data","Abertura","Máxima","Mínima","Fechamento","Volume"]
     df_prata['Variação (%)'] = df_prata['Fechamento'].pct_change().mul(100).round(2)
@@ -157,7 +161,7 @@ with abas[5]:
         st.error("Erro ao obter os dados do dólar. Verifique a chave da API ou limite de requisições.")
 
 # ----------- Aba Euro -----------
-'''with abas[6]:
+with abas[6]:
     st.subheader("💶 Euro (EUR/BRL)")
 
     url = 'https://www.alphavantage.co/query'
@@ -190,4 +194,4 @@ with abas[5]:
 
         st.dataframe(df_euro)
     else:
-        st.error("Erro ao obter os dados do euro. Verifique a chave da API ou tente novamente mais tar'''
+        st.error("Erro ao obter os dados do euro. Verifique a chave da API ou tente novamente mais tar
