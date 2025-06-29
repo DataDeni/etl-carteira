@@ -157,7 +157,7 @@ with abas[5]:
         st.error("Erro ao obter os dados do dólar. Verifique a chave da API ou limite de requisições.")
 
 # ----------- Aba Euro -----------
-with abas[6]:
+'''with abas[6]:
     st.subheader("💶 Euro (EUR/BRL)")
 
     url = 'https://www.alphavantage.co/query'
@@ -190,4 +190,4 @@ with abas[6]:
 
         st.dataframe(df_euro)
     else:
-        st.error("Erro ao obter os dados do euro. Verifique a chave da API ou tente novamente mais tar
+        st.error("Erro ao obter os dados do euro. Verifique a chave da API ou tente novamente mais tar'''
