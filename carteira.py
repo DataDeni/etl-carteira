@@ -126,7 +126,7 @@ with abas[4]:
         st.error("Erro ao obter os dados do Ethereum. Verifique a API ou tente novamente.")
 
 # ----------- Aba Dólar -----------
-with abas[5]:
+'''with abas[5]:
     st.subheader("💵 Dólar (USD/BRL)")
 
     url = 'https://www.alphavantage.co/query'
@@ -161,7 +161,7 @@ with abas[5]:
         st.error("Erro ao obter os dados do dólar. Verifique a chave da API ou limite de requisições.")
 
 # ----------- Aba Euro -----------
-'''with abas[6]:
+    with abas[6]:
     st.subheader("💶 Euro (EUR/BRL)")
 
     url = 'https://www.alphavantage.co/query'
