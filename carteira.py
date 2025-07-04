@@ -194,4 +194,4 @@ with abas[4]:
 
         st.dataframe(df_euro)
     else:
-        st.error("Erro ao obter os dados do euro. Verifique a chave da API ou tente novamente mais tar
+        st.error("Erro ao obter os dados do euro. Verifique a chave da API ou tente novamente mais tarde")
