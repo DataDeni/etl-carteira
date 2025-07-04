@@ -193,5 +193,5 @@ with abas[5]:
              df_euro['Data'] = df_euro['Data'].dt.strftime('%d/%m/%Y')
 
              st.dataframe(df_euro)
-          else:
+         else:
              st.error("Erro ao obter os dados do euro. Verifique a chave da API ou tente novamente mais tarde")
