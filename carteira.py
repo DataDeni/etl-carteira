@@ -126,7 +126,7 @@ with abas[4]:
         st.error("Erro ao obter os dados do Ethereum. Verifique a API ou tente novamente.")
 
 # ----------- Aba Dólar -----------
-    with abas[5]:
+with abas[5]:
     st.subheader("💵 Dólar (USD/BRL)")
 
     url = 'https://www.alphavantage.co/query'
