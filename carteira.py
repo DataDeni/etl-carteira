@@ -162,36 +162,36 @@ with abas[5]:
 
 # ----------- Aba Euro -----------
     with abas[6]:
-    st.subheader("💶 Euro (EUR/BRL)")
+         st.subheader("💶 Euro (EUR/BRL)")
 
-    url = 'https://www.alphavantage.co/query'
-    api = 'XUVYGH7HQ1CATKYS'
-    params = {
-        'function': 'FX_DAILY',
-        'from_symbol': 'EUR',
-        'to_symbol': 'BRL',
-        'outputsize': 'full',
-        'apikey': api
-    }
+         url = 'https://www.alphavantage.co/query'
+         api = 'XUVYGH7HQ1CATKYS'
+         params = {
+             'function': 'FX_DAILY',
+             'from_symbol': 'EUR',
+             'to_symbol': 'BRL',
+             'outputsize': 'full',
+             'apikey': api
+         }
 
-    response = requests.get(url, params=params)
-    dados = response.json()
+         response = requests.get(url, params=params)
+         dados = response.json()
 
-    if 'Time Series FX (Daily)' in dados:
-        precos = dados['Time Series FX (Daily)']
-        df_euro = pd.DataFrame.from_dict(precos, orient='index').reset_index()
-        df_euro.columns = ['Data', 'Abertura', 'Máxima', 'Mínima', 'Fechamento']
+         if 'Time Series FX (Daily)' in dados:
+         precos = dados['Time Series FX (Daily)']
+         df_euro = pd.DataFrame.from_dict(precos, orient='index').reset_index()
+         df_euro.columns = ['Data', 'Abertura', 'Máxima', 'Mínima', 'Fechamento']
 
-        colunas = ['Abertura', 'Máxima', 'Mínima', 'Fechamento']
-        df_euro[colunas] = df_euro[colunas].astype(float)
+         colunas = ['Abertura', 'Máxima', 'Mínima', 'Fechamento']
+         df_euro[colunas] = df_euro[colunas].astype(float)
 
-        df_euro['Data'] = pd.to_datetime(df_euro['Data'])
-        df_euro = df_euro.sort_values('Data').reset_index(drop=True)
+         df_euro['Data'] = pd.to_datetime(df_euro['Data'])
+         df_euro = df_euro.sort_values('Data').reset_index(drop=True)
 
-        df_euro['Variação (%)'] = df_euro['Fechamento'].pct_change().mul(100).round(2)
-        df_euro = df_euro[::-1].reset_index(drop=True)
-        df_euro['Data'] = df_euro['Data'].dt.strftime('%d/%m/%Y')
+         df_euro['Variação (%)'] = df_euro['Fechamento'].pct_change().mul(100).round(2)
+         df_euro = df_euro[::-1].reset_index(drop=True)
+         df_euro['Data'] = df_euro['Data'].dt.strftime('%d/%m/%Y')
 
-        st.dataframe(df_euro)
-    else:
-        st.error("Erro ao obter os dados do euro. Verifique a chave da API ou tente novamente mais tarde")
+         st.dataframe(df_euro)
+     else:
+         st.error("Erro ao obter os dados do euro. Verifique a chave da API ou tente novamente mais tarde")
